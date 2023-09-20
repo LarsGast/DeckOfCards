@@ -84,7 +84,7 @@ namespace DeckOfCardsTests {
 		}
 
 		/// <summary>
-		/// Tests whether the cards that are already drawn, don't get shuffled back into the deck if so secified.
+		/// Tests whether the cards that are already drawn, don't get shuffled back into the deck if so specified.
 		/// </summary>
 		[Test]
 		public void drawnCardsDoNotShuffle() {
