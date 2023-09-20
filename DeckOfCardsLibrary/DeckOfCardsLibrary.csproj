@@ -4,6 +4,28 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>DeckOfPlayingCards</PackageId>
+    <Authors>Lars Hoekstra</Authors>
+    <Title>Deck of cards</Title>
+    <Company></Company>
+    <Product />
+    <Description>Some simple code for playing with a standard deck of 52 cards.</Description>
+    <PackageProjectUrl>https://github.com/LarsGast/DeckOfCards</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/LarsGast/DeckOfCards</RepositoryUrl>
+    <Copyright>Copyright (c) Lars Hoekstra 2023</Copyright>
+    <PackageTags>card;cards;deck;deck of cards;poker;blackjack;playingcards</PackageTags>
+    <PackageReleaseNotes>First iteration.</PackageReleaseNotes>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
