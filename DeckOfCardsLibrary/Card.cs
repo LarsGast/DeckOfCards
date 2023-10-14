@@ -63,5 +63,14 @@
 		public bool equals(Card other) {
 			return this.rank == other.rank && this.suit == other.suit;
 		}
+
+		/// <summary>
+		/// Gets the display string for a card.
+		/// This is a two character string (except for a card with rank 10).
+		/// </summary>
+		/// <returns></returns>
+		public string getDisplayString() {
+			return this.suit.getDisplayString() + this.rank.getDisplayString();
+		}
 	}
 }
