@@ -8,7 +8,7 @@
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
+- [Contributing and Feedback](#contributing-and-feedback)
 
 ## About
 
