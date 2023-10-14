@@ -56,7 +56,7 @@ static void showStatus(Deck? deck, bool shuffled, Card? card) {
 		}
 
 		if (card != null) {
-			Console.WriteLine($"Last card drawn: {card.rank} of {card.suit}");
+			Console.WriteLine($"Last card drawn: {card.getDisplayString(displayTenAsT: true)}");
 		}
 	}
 }
@@ -156,7 +156,7 @@ static void showHistory(List<Card> drawnCards) {
 	Console.Clear();
 	Console.WriteLine("History:");
 	foreach (var drawnCard in drawnCards) {
-		Console.WriteLine($"{drawnCard.rank} of {drawnCard.suit}");
+		Console.WriteLine(drawnCard.getDisplayString(displayTenAsT: true));
 	}
 	Console.WriteLine();
 	Console.WriteLine("Press any key to continue");
