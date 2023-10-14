@@ -43,7 +43,7 @@
 		/// Shuffles the cards in the deck.
 		/// </summary>
 		/// <param name="includeDrawnCards">Whether the deck will shuffle the already drawn cards back into the deck.</param>
-		/// <param name="random">Random variable for drawing many cards in one instant.</param>
+		/// <param name="random">Pre-defined random variable.</param>
 		public void shuffle(bool includeDrawnCards = true, Random? random = null) {
 
 			// Initiate random if not done already.
