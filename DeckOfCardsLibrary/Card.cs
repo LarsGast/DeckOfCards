@@ -69,8 +69,8 @@
 		/// This is a two character string (except for a card with rank 10).
 		/// </summary>
 		/// <returns></returns>
-		public string getDisplayString() {
-			return this.suit.getDisplayString() + this.rank.getDisplayString();
+		public string getDisplayString(bool displayTenAsT = false) {
+			return this.suit.getDisplayString() + this.rank.getDisplayString(displayTenAsT);
 		}
 	}
 }

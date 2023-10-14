@@ -8,9 +8,15 @@ namespace DeckOfCardsLibrary {
 		/// Gets the value of the rank as a string for displaying.
 		/// </summary>
 		/// <param name="rank"></param>
-		/// <returns></returns>
-		public static string getDisplayString(this Rank rank) {
+		/// <param name="displayTenAsT">Wether the rank "Ten" should be displayed as "T" or "10"</param>
+		/// <returns>A one or two character string that represents the value of the rank</returns>
+		public static string getDisplayString(this Rank rank, bool displayTenAsT = false) {
 			switch (rank) {
+				case Rank.Ten:
+					if (displayTenAsT) {
+						return "T";
+					}
+					break;
 				case Rank.Jack:
 					return "J";
 				case Rank.Queen:
@@ -19,9 +25,9 @@ namespace DeckOfCardsLibrary {
 					return "K";
 				case Rank.Ace:
 					return "A";
-				default:
-					return ((int)rank).ToString();
 			}
+
+			return ((int)rank).ToString();
 		}
 
 		/// <summary>
@@ -29,7 +35,7 @@ namespace DeckOfCardsLibrary {
 		/// Gets the unicode value of the suit as a string for displaying.
 		/// </summary>
 		/// <param name="suit"></param>
-		/// <returns></returns>
+		/// <returns>A one character unicode string that represents the value of the suit</returns>
 		public static string? getDisplayString(this Suit suit) {
 			switch (suit) {
 				case Suit.Hearts:
