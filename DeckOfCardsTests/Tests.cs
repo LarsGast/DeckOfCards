@@ -131,5 +131,27 @@ namespace DeckOfCardsTests {
 			Assert.That(numberOfCardsDifferent, Is.GreaterThanOrEqualTo(threshold), $"Less than {threshold} cards are different.");
 		}
 
+		/// <summary>
+		/// Tests whether every card has a display string and that the methods called do not throw an exception.
+		/// </summary>
+		[Test]
+		public void displayEveryCard() {
+			var deck = Deck.get();
+
+			while (true) {
+				var card = deck.draw();
+
+				if (card == null ) {
+					break;
+				}
+
+				var assertionMessage = $"Exception thrown while getting the display string of the {card.rank} of {card.suit}";
+
+				Assert.Multiple(() => {
+					Assert.That(() => { card.getDisplayString(displayTenAsT: false); }, Throws.Nothing, assertionMessage);
+					Assert.That(() => { card.getDisplayString(displayTenAsT: true); }, Throws.Nothing, assertionMessage);
+				});
+			}
+		}
 	}
 }
