@@ -66,8 +66,9 @@
 
 		/// <summary>
 		/// Gets the display string for a card.
-		/// This is a two character string (except for a card with rank 10).
+		/// This is a two character string (except for a card with rank 10, if displayTenAsT is false).
 		/// </summary>
+		/// <param name="displayTenAsT">Whether the rank "Ten" should be displayed as "T". Otherwise "10". False by default.</param>
 		/// <returns></returns>
 		public string getDisplayString(bool displayTenAsT = false) {
 			return this.suit.getDisplayString() + this.rank.getDisplayString(displayTenAsT);

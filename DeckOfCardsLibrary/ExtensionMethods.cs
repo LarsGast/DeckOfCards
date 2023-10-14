@@ -8,7 +8,7 @@ namespace DeckOfCardsLibrary {
 		/// Gets the value of the rank as a string for displaying.
 		/// </summary>
 		/// <param name="rank"></param>
-		/// <param name="displayTenAsT">Wether the rank "Ten" should be displayed as "T" or "10"</param>
+		/// <param name="displayTenAsT">Whether the rank "Ten" should be displayed as "T". Otherwise "10". False by default.</param>
 		/// <returns>A one or two character string that represents the value of the rank</returns>
 		public static string getDisplayString(this Rank rank, bool displayTenAsT = false) {
 			switch (rank) {
