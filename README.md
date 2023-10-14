@@ -1,11 +1,12 @@
 # Deck of cards
 
-[GitHub repo](https://github.com/LarsGast/DeckOfCards)
+[![Nuget](https://img.shields.io/nuget/v/DeckOfPlayingCards?color=green)](https://www.nuget.org/packages/DeckOfPlayingCards)
 
 ## Table of Contents
 
 - [About](#about)
 - [Features](#features)
+- [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
 
@@ -37,11 +38,21 @@ The draw() method doesn't remove a card from the deck, it simply returns the car
 
 For the source code, check out the GitHub repo.
 
+## Installation
+
+To use Deck of Cards in your project, you can install it via NuGet Package Manager:
+
+```shell
+nuget install DeckOfPlayingCards
+```
+
 ## Usage
 
-Getting a deck, shuffling it, and drawing cards is pretty straightforward. See the code snippet below.
+Getting a deck, shuffling it, drawing cards, and resetting it is pretty straightforward. See the code snippet below.
 
-```csharp
+```cs
+using DeckOfCardsLibrary;
+
 // Get an unshuffled deck.
 var deck = Deck.get();
 
@@ -49,11 +60,23 @@ var deck = Deck.get();
 deck.shuffle();
 
 // Draw some cards.
-var firstCard = deck.draw();
-var secondCard = deck.draw();
+var firstCard = deck.draw()!;
+var secondCard = deck.draw()!;
+
+// Keep in mind that deck.draw() returns null if all the cards in the deck have already been drawn.
+// In this case I have only drawn two cards, so I can safely say the method does not return null.
+
+// I'll display them in a way that is easy on the eye.
+// The rank "10" will be displayed as "T" here to make sure the display string will always be two characters.
+Console.WriteLine(firstCard.getDisplayString(displayTenAsT: true));
+Console.WriteLine(secondCard.getDisplayString(displayTenAsT: true));
 
 // That was a good hand! Let's reset the deck so I get the same cards again.
 deck.reset();
+
+// Just kidding! I play fair.
+deck = Deck.get();
+deck.shuffle(random: new Random(915));
 ```
 
 The GitHub repo also includes a console app which you can play around with.
