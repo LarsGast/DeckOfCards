@@ -14,11 +14,15 @@
     <RepositoryUrl>https://github.com/LarsGast/DeckOfCards</RepositoryUrl>
     <Copyright>Copyright (c) Lars Hoekstra 2023</Copyright>
     <PackageTags>card;cards;deck;deck of cards;poker;blackjack;playingcards</PackageTags>
-    <PackageReleaseNotes>First iteration.</PackageReleaseNotes>
+    <PackageReleaseNotes>Added extension methods for displaying the rank and suit of a card as a single character.
+Added an XML documentation file.
+Updated the README.md file.</PackageReleaseNotes>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

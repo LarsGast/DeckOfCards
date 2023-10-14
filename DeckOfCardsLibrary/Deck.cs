@@ -1,31 +1,33 @@
 ﻿namespace DeckOfCardsLibrary {
+	/// <summary>
+	/// Represents a deck of playing cards. 
+	/// This class allows you to create, shuffle, draw from, and reset a deck of 52 cards.
+	/// </summary>
 	public class Deck {
 
 		/// <summary>
-		/// The 52 cards of this deck.
-		/// Possibly sorted.
+		/// The list of 52 cards in this deck, possibly sorted.
 		/// </summary>
 		private List<Card> _cards { get; set; }
 
 		/// <summary>
-		/// The index of the las drawn card.
-		/// -1 if no card has been drawn yet.
+		/// The index of the last drawn card, or -1 if no card has been drawn yet.
 		/// </summary>
 		private int _index { get; set; }
 
 		/// <summary>
-		/// Constructor.
+		/// Constructor for creating a new deck.
 		/// </summary>
-		/// <param name="cards"></param>
+		/// <param name="cards">The initial set of cards to populate the deck.</param>
 		private Deck(IEnumerable<Card> cards) {
 			this._cards = cards.ToList();
 			this._index = -1;
 		}
 
 		/// <summary>
-		/// Gets an (unsorted) deck of 52 cards.
+		/// Gets an unsorted deck of 52 cards.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>A new unshuffled deck.</returns>
 		public static Deck get() {
 			var cards = new List<Card>();
 
@@ -42,22 +44,22 @@
 		/// <summary>
 		/// Shuffles the cards in the deck.
 		/// </summary>
-		/// <param name="includeDrawnCards">Whether the deck will shuffle the already drawn cards back into the deck.</param>
-		/// <param name="random">Pre-defined random variable.</param>
+		/// <param name="includeDrawnCards">Indicates whether drawn cards should be shuffled back into the deck.</param>
+		/// <param name="random">A pre-defined random variable. A new one will be created if not provided.</param>
 		public void shuffle(bool includeDrawnCards = true, Random? random = null) {
 
-			// Initiate random if not done already.
+			// Initialize random if not done already.
 			if (random == null) {
 				random = new Random();
 			}
 
-			var cardsToNotFhuffle = new List<Card>();
+			var cardsToNotShuffle = new List<Card>();
 			var cardsToShuffle = this._cards;
 
-			// If we don't want to include the already drawn cards, then exclude those when shuffling the deck.
+			// If we don't want to include the already drawn cards, then exclude them when shuffling the deck.
 			if (!includeDrawnCards) {
 
-				cardsToNotFhuffle = this._cards
+				cardsToNotShuffle = this._cards
 					.Where(card => this._cards.IndexOf(card) <= this._index)
 					.ToList();
 
@@ -71,16 +73,16 @@
 			}
 
 			// Actually shuffle the cards.
-			// Add the already drawn cards to the front of the deck (in order) if neccecary.
+			// Add the already drawn cards to the front of the deck (in order) if necessary.
 			var shuffledCards = cardsToShuffle.OrderBy(card => random.Next()).ToList();
-			this._cards = cardsToNotFhuffle.Union(shuffledCards).ToList();
+			this._cards = cardsToNotShuffle.Union(shuffledCards).ToList();
 		}
 
 		/// <summary>
 		/// Draw a card from the deck by the next index.
 		/// The card does not actually get removed from the deck.
 		/// </summary>
-		/// <returns>The card corresponding to the next index.</returns>
+		/// <returns>The card corresponding to the next index or null if the deck is empty.</returns>
 		public Card? draw() {
 
 			this._index++;
@@ -95,8 +97,8 @@
 		}
 
 		/// <summary>
-		/// Resets the deck.
-		/// This means adding the already drawn cards back into the deck, in the same order.
+		/// Resets the deck by setting the index to -1.
+		/// This adds the already drawn cards back into the deck, in the same order.
 		/// This does NOT mean un-shuffling the deck.
 		/// </summary>
 		public void reset() {
