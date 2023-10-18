@@ -1,9 +1,21 @@
-﻿namespace DeckOfCardsLibrary {
+﻿using System.Collections.ObjectModel;
+
+namespace DeckOfCardsLibrary {
+
 	/// <summary>
 	/// Represents a deck of playing cards. 
 	/// This class allows you to create, shuffle, draw from, and reset a deck of 52 cards.
 	/// </summary>
 	public class Deck {
+
+		/// <summary>
+		/// The list of 52 cards in this deck, possibly sorted.
+		/// </summary>
+		public ReadOnlyCollection<Card> cards { 
+			get {
+				return this._cards.AsReadOnly();
+			} 
+		}
 
 		/// <summary>
 		/// The list of 52 cards in this deck, possibly sorted.
