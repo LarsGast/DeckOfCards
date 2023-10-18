@@ -11,7 +11,7 @@
 		private List<Card> _cards { get; set; }
 
 		/// <summary>
-		/// he index of the card that is currently at the top of the deck and next to be drawn.
+		/// The index of the card that is currently at the top of the deck and next to be drawn.
 		/// 0 if no cards have been drawn yet.
 		/// </summary>
 		private int _index { get; set; }
