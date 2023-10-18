@@ -1,4 +1,5 @@
 ﻿namespace DeckOfCardsLibrary {
+
 	/// <summary>
 	/// Represents a deck of playing cards. 
 	/// This class allows you to create, shuffle, draw from, and reset a deck of 52 cards.
