@@ -25,13 +25,19 @@
 		}
 
 		/// <summary>
-		/// Gets an unsorted deck of 52 cards.
+		/// Creates a new deck of cards, which can be initialized with a custom list of cards if desired.
 		/// </summary>
-		/// <returns>A new unshuffled deck.</returns>
-		public static Deck get() {
-			var cards = new List<Card>();
+		/// <param name="cards">An optional list of cards to initialize the deck. If not provided, it results in a standard 52-card deck.</param>
+		/// <returns>A new deck of cards. If the "cards" parameter is not provided, it will be a standard deck of 52 cards.</returns>
+		public static Deck get(List<Card>? cards = null) {
 
-			// Create a card for each suit-rank combination.
+			if (cards != null) {
+				return new Deck(cards);
+			}
+
+			cards = new List<Card>();
+
+			// Generate cards for each suit and rank combination.
 			foreach (Card.Suit suit in Enum.GetValues(typeof(Card.Suit))) {
 				foreach (Card.Rank rank in Enum.GetValues(typeof(Card.Rank))) {
 					cards.Add(new Card(rank, suit));
