@@ -11,7 +11,8 @@
 		private List<Card> _cards { get; set; }
 
 		/// <summary>
-		/// The index of the last drawn card, or -1 if no card has been drawn yet.
+		/// The index of the card that is currently at the top of the deck and next to be drawn.
+		/// 0 if no cards have been drawn yet.
 		/// </summary>
 		private int _index { get; set; }
 
@@ -21,7 +22,7 @@
 		/// <param name="cards">The initial set of cards to populate the deck.</param>
 		private Deck(IEnumerable<Card> cards) {
 			this._cards = cards.ToList();
-			this._index = -1;
+			this._index = 0;
 		}
 
 		/// <summary>
@@ -79,13 +80,11 @@
 		}
 
 		/// <summary>
-		/// Draw a card from the deck by the next index.
+		/// Draw a card from the deck based on the current index.
 		/// The card does not actually get removed from the deck.
 		/// </summary>
-		/// <returns>The card corresponding to the next index or null if the deck is empty.</returns>
+		/// <returns>The card corresponding to the current index, or null if the current index is out of bounds.</returns>
 		public Card? draw() {
-
-			this._index++;
 
 			if (this._index >= this._cards.Count) {
 				return null;
@@ -93,16 +92,18 @@
 
 			var card = this._cards[this._index];
 
+			this._index++;
+
 			return card;
 		}
 
 		/// <summary>
-		/// Resets the deck by setting the index to -1.
+		/// Resets the deck by setting the index to 0.
 		/// This adds the already drawn cards back into the deck, in the same order.
 		/// This does NOT mean un-shuffling the deck.
 		/// </summary>
 		public void reset() {
-			this._index = -1;
+			this._index = 0;
 		}
 	}
 }
