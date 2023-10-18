@@ -35,7 +35,17 @@
 				return new Deck(cards);
 			}
 
-			cards = new List<Card>();
+			return Deck.getStandardDeck();
+		}
+
+		/// <summary>
+		/// Creates and returns a standard 52-card deck.
+		/// </summary>
+		/// <returns>A new Deck object representing a standard deck of 52 playing cards.</returns>
+		private static Deck getStandardDeck() {
+
+			// Initialize an empty list to hold the cards.
+			var cards = new List<Card>();
 
 			// Generate cards for each suit and rank combination.
 			foreach (Card.Suit suit in Enum.GetValues(typeof(Card.Suit))) {
@@ -44,6 +54,7 @@
 				}
 			}
 
+			// Create and return a new Deck with the generated cards.
 			return new Deck(cards);
 		}
 
