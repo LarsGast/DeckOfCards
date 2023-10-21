@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace DeckOfCardsLibrary {
+namespace DeckOfPlayingCards {
 
 	/// <summary>
 	/// Represents a deck of playing cards. 

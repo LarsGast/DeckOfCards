@@ -1,4 +1,4 @@
-﻿using DeckOfCardsLibrary;
+﻿using DeckOfPlayingCards;
 
 // Initialize some variables.
 Deck? deck = null;

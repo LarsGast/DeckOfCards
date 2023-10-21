@@ -1,4 +1,4 @@
-﻿namespace DeckOfCardsLibrary {
+﻿namespace DeckOfPlayingCards {
 
 	/// <summary>
 	/// Represents a playing card with a rank and suit.

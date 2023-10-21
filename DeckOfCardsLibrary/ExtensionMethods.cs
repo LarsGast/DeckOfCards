@@ -1,6 +1,6 @@
-﻿using static DeckOfCardsLibrary.Card;
+﻿using static DeckOfPlayingCards.Card;
 
-namespace DeckOfCardsLibrary {
+namespace DeckOfPlayingCards {
 
 	/// <summary>
 	/// A static class that provides extension methods for the `Card.Rank` and `Card.Suit` enums to facilitate the display of card ranks and suits as strings or Unicode characters.
