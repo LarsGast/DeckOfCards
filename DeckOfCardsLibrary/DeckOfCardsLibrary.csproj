@@ -14,13 +14,13 @@
     <RepositoryUrl>https://github.com/LarsGast/DeckOfCards</RepositoryUrl>
     <Copyright>Copyright (c) Lars Hoekstra 2023</Copyright>
     <PackageTags>card;cards;deck;deck of cards;poker;blackjack;playingcards</PackageTags>
-    <PackageReleaseNotes>Updated the ReadMe.md</PackageReleaseNotes>
+    <PackageReleaseNotes>* `deck._index` now starts at 0 instead of -1.</PackageReleaseNotes>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
