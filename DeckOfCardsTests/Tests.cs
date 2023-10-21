@@ -153,5 +153,36 @@ namespace DeckOfCardsTests {
 				});
 			}
 		}
+
+		/// <summary>
+		/// Test whether creating an empty deck has valid results.
+		/// </summary>
+		[Test]
+		public void emptyDeckIsValid() {
+			var deck = Deck.get(new List<Card>());
+
+			Assert.Multiple(() => {
+				Assert.That(() => { deck.shuffle(); }, Throws.Nothing, "Shuffle throws exception");
+				Assert.That(() => { deck.draw(); }, Throws.Nothing, "Draw throws exception");
+				Assert.That(() => { deck.reset(); }, Throws.Nothing, "Reset throws exception");
+				Assert.That(deck.draw(), Is.EqualTo(null), "Drawn card is not null");
+			});
+		}
+
+		/// <summary>
+		/// Test whether creating a deck with only one card has valid results.
+		/// </summary>
+		[Test]
+		public void deckWithOneCardIsValid() {
+			var cards = new List<Card>() { new Card(Card.Rank.Ace, Card.Suit.Spades) };
+			var deck = Deck.get(cards);
+
+			Assert.Multiple(() => {
+				Assert.That(() => { deck.shuffle(); }, Throws.Nothing, "Shuffle throws exception");
+				Assert.That(() => { deck.draw(); }, Throws.Nothing, "Draw throws exception");
+				Assert.That(() => { deck.reset(); }, Throws.Nothing, "Reset throws exception");
+				Assert.That(deck.draw(), Is.EqualTo(cards.First()), "Drawn card is not the card in the deck");
+			});
+		}
 	}
 }
