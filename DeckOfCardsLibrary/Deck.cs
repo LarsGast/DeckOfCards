@@ -9,7 +9,7 @@ namespace DeckOfCardsLibrary {
 	public class Deck {
 
 		/// <summary>
-		/// The list of 52 cards in this deck, possibly sorted.
+		/// The list of 52 cards in this deck, possibly shuffled.
 		/// </summary>
 		public ReadOnlyCollection<Card> cards { 
 			get {
@@ -18,13 +18,13 @@ namespace DeckOfCardsLibrary {
 		}
 
 		/// <summary>
-		/// The list of 52 cards in this deck, possibly sorted.
+		/// The list of 52 cards in this deck, possibly shuffled.
 		/// </summary>
 		private List<Card> _cards { get; set; }
 
 		/// <summary>
 		/// The index of the card that is currently at the top of the deck and next to be drawn.
-		/// 0 if no cards have been drawn yet.
+		/// 0 if no cards have been drawn yet or if the deck has been reset.
 		/// </summary>
 		private int _index { get; set; }
 
