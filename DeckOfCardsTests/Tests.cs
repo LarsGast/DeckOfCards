@@ -9,20 +9,14 @@ namespace DeckOfCardsTests {
 		public void shuffleIsRandom() {
 
 			// Initiate some variables.
-			var random = new Random();
+			var random = new Random(1);
 			var deck = Deck.get();
 			int numberOfIterations = 1000;
 
 			// Dictionary to store the frequency of each card after shuffling.
 			var cardFrequency = new Dictionary<Card, int>();
 
-			while (true) {
-				var card = deck.draw();
-
-				if (card == null) {
-					break;
-				}
-
+			foreach(var card in deck.cards) {
 				cardFrequency[card] = 0;
 			}
 
@@ -35,13 +29,7 @@ namespace DeckOfCardsTests {
 				// Store which index the each card is shuffled.
 				int cardIndex = 0;
 
-				while (true) {
-					var card = deck.draw();
-
-					if (card == null) {
-						break;
-					}
-
+				foreach(var card in deck.cards) {
 					cardFrequency[card] = cardFrequency[card] + cardIndex;
 					cardIndex++;
 				}
@@ -53,13 +41,7 @@ namespace DeckOfCardsTests {
 			// Calculate the chi-square statistic
 			double chiSquare = 0;
 
-			while (true) {
-				var card = deck.draw();
-
-				if (card == null) {
-					break;
-				}
-
+			foreach(var card in deck.cards) {
 				// The observer average index is the observed indexes summed up divided by the number of shuffles.
 				double observedAverageIndex = (double)cardFrequency[card] / numberOfIterations;
 
@@ -138,13 +120,7 @@ namespace DeckOfCardsTests {
 		public void displayEveryCard() {
 			var deck = Deck.get();
 
-			while (true) {
-				var card = deck.draw();
-
-				if (card == null ) {
-					break;
-				}
-
+			foreach(var card in deck.cards) {
 				var assertionMessage = $"Exception thrown while getting the display string of the {card.rank} of {card.suit}";
 
 				Assert.Multiple(() => {
