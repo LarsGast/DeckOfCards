@@ -19,11 +19,13 @@ This library can be used to create card games such as poker or blackjack. With t
 This package includes the following classes:
 * Card.cs
 * Deck.cs
+* ExtensionMethods.cs
 
 The Card.cs class is a simple class for storing the rank and the suit of the card.
 The Deck.cs class contains a list of cards as a property. It also includes the following methods:
 * get()
 	* Gets a standards deck of 52 cards, not shuffled.
+	* If specified, you can create a deck with your own set of cards.
 * shuffle()
 	* Shuffles the deck.
 	* Includes a parameter to specify whether the already drawn cards should be shuffled back into the deck.
@@ -35,6 +37,8 @@ The Deck.cs class contains a list of cards as a property. It also includes the f
 	* Resets the deck, meaning all drawn cards will be put back onto the deck in the same order as they were originally.
 
 The draw() method doesn't remove a card from the deck, it simply returns the card at the current index and moves the index up by 1. This is how already drawn cards can be put back into the deck in the same order.
+
+The ExtensionMethods.cs class contains extension methods for the `Card.Rank` and `Card.Suit` enums. These methods can be called to create a display string for the rand and the suit of the card. For example: the display string of the Ten of Hearts is T&hearts;.
 
 For the source code, check out the GitHub repo.
 
@@ -53,7 +57,7 @@ Getting a deck, shuffling it, drawing cards, and resetting it is pretty straight
 ```cs
 using DeckOfCardsLibrary;
 
-// Get an unshuffled deck.
+// Get a standard unshuffled deck.
 var deck = Deck.get();
 
 // Shuffle the deck.
