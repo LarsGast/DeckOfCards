@@ -38,19 +38,36 @@ namespace DeckOfCardsLibrary {
 		}
 
 		/// <summary>
-		/// Gets an unsorted deck of 52 cards.
+		/// Creates a new deck of cards, which can be initialized with a custom list of cards if desired.
 		/// </summary>
-		/// <returns>A new unshuffled deck.</returns>
-		public static Deck get() {
+		/// <param name="cards">An optional list of cards to initialize the deck. If not provided, it results in a standard 52-card deck.</param>
+		/// <returns>A new deck of cards. If the "cards" parameter is not provided, it will be a standard deck of 52 cards.</returns>
+		public static Deck get(List<Card>? cards = null) {
+
+			if (cards != null) {
+				return new Deck(cards);
+			}
+
+			return Deck.getStandardDeck();
+		}
+
+		/// <summary>
+		/// Creates and returns a standard 52-card deck.
+		/// </summary>
+		/// <returns>A new Deck object representing a standard deck of 52 playing cards.</returns>
+		private static Deck getStandardDeck() {
+
+			// Initialize an empty list to hold the cards.
 			var cards = new List<Card>();
 
-			// Create a card for each suit-rank combination.
+			// Generate cards for each suit and rank combination.
 			foreach (Card.Suit suit in Enum.GetValues(typeof(Card.Suit))) {
 				foreach (Card.Rank rank in Enum.GetValues(typeof(Card.Rank))) {
 					cards.Add(new Card(rank, suit));
 				}
 			}
 
+			// Create and return a new Deck with the generated cards.
 			return new Deck(cards);
 		}
 
