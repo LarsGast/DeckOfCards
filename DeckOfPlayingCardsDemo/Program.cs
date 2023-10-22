@@ -46,6 +46,8 @@ namespace DeckOfPlayingCardsDemo {
 			}
 		}
 
+		#region Console writeline methods
+
 		/// <summary>
 		/// Shows the status of the deck and the last drawn card.
 		/// </summary>
@@ -72,17 +74,6 @@ namespace DeckOfPlayingCardsDemo {
 		}
 
 		/// <summary>
-		/// Shows a message to the user and halts the program until user interferance.
-		/// </summary>
-		/// <param name="message"></param>
-		private static void showMessage(string message = "Error") {
-			Console.Clear();
-			Console.WriteLine(message);
-			Console.WriteLine("Press any key to continue");
-			Console.ReadKey();
-		}
-
-		/// <summary>
 		/// Shows the user the options they have to continue.
 		/// </summary>
 		private static void showOptions() {
@@ -94,6 +85,21 @@ namespace DeckOfPlayingCardsDemo {
 			Console.WriteLine("H: History. View all the drawn cards");
 			Console.WriteLine("E: Exit (close the console)");
 		}
+
+		/// <summary>
+		/// Shows a message to the user and halts the program until user interferance.
+		/// </summary>
+		/// <param name="message"></param>
+		private static void showMessage(string message = "Error") {
+			Console.Clear();
+			Console.WriteLine(message);
+			Console.WriteLine("Press any key to continue");
+			Console.ReadKey();
+		}
+
+		#endregion
+
+		#region Logic methods
 
 		/// <summary>
 		/// Handles the request based on the input of the user.
@@ -205,5 +211,7 @@ namespace DeckOfPlayingCardsDemo {
 			Console.WriteLine("Press any key to continue");
 			Console.ReadKey();
 		}
+
+		#endregion 
 	}
 }
