@@ -15,13 +15,13 @@ namespace DeckOfPlayingCardsDemo {
 				Console.Clear();
 
 				// Show the deck, shuffled, and card status to the user.
-				showStatus(deck, shuffled, card);
+				Program.showStatus(deck, shuffled, card);
 
 				// Add a white space
 				Console.WriteLine();
 
 				// Show the options that the user has to the user.
-				showOptions();
+				Program.showOptions();
 
 				// Get the input of the user based on the options.
 				var input = Console.ReadLine();
@@ -29,7 +29,7 @@ namespace DeckOfPlayingCardsDemo {
 				// Check if we actually have an input.
 				// If so, de-capitalize it.
 				if (input == null) {
-					showMessage("No input received");
+					Program.showMessage("No input received");
 					continue;
 				}
 				else {
@@ -42,7 +42,7 @@ namespace DeckOfPlayingCardsDemo {
 				}
 
 				// Handle the request based on the input of the user.
-				handleRequest(ref deck, ref card, ref shuffled, ref drawnCards, input);
+				Program.handleRequest(ref deck, ref card, ref shuffled, ref drawnCards, input);
 			}
 		}
 
@@ -105,22 +105,22 @@ namespace DeckOfPlayingCardsDemo {
 		/// <param name="input"></param>
 		private static void handleRequest(ref Deck? deck, ref Card? card, ref bool shuffled, ref List<Card> drawnCards, string? input) {
 			if (input == "g") {
-				getDeck(out deck, ref shuffled);
+				Program.getDeck(out deck, ref shuffled);
 			}
 			else if (input == "s") {
-				shuffleDeck(deck, ref shuffled);
+				Program.shuffleDeck(deck, ref shuffled);
 			}
 			else if (input == "d") {
-				drawCard(deck, drawnCards, ref card);
+				Program.drawCard(deck, drawnCards, ref card);
 			}
 			else if (input == "r") {
-				resetDeck(deck, ref card, ref drawnCards);
+				Program.resetDeck(deck, ref card, ref drawnCards);
 			}
 			else if (input == "h") {
-				showHistory(drawnCards);
+				Program.showHistory(drawnCards);
 			}
 			else {
-				showMessage("Unknown input. Try again.");
+				Program.showMessage("Unknown input. Try again.");
 			}
 		}
 
@@ -141,7 +141,7 @@ namespace DeckOfPlayingCardsDemo {
 		/// <param name="shuffled"></param>
 		private static void shuffleDeck(Deck? deck, ref bool shuffled) {
 			if (deck == null) {
-				showMessage("Deck not found");
+				Program.showMessage("Deck not found");
 				return;
 			}
 
@@ -157,7 +157,7 @@ namespace DeckOfPlayingCardsDemo {
 		/// <param name="card"></param>
 		private static void drawCard(Deck? deck, List<Card> drawnCards, ref Card? card) {
 			if (deck == null) {
-				showMessage("Deck not found");
+				Program.showMessage("Deck not found");
 				return;
 			}
 
@@ -175,7 +175,7 @@ namespace DeckOfPlayingCardsDemo {
 		/// <param name="drawnCards"></param>
 		private static void resetDeck(Deck? deck, ref Card? card, ref List<Card> drawnCards) {
 			if (deck == null) {
-				showMessage("Deck not found");
+				Program.showMessage("Deck not found");
 				return;
 			}
 
@@ -183,7 +183,7 @@ namespace DeckOfPlayingCardsDemo {
 			card = null;
 			drawnCards = new List<Card>();
 
-			showMessage("Deck will be reset");
+			Program.showMessage("Deck will be reset");
 		}
 
 		/// <summary>
@@ -192,7 +192,7 @@ namespace DeckOfPlayingCardsDemo {
 		/// <param name="drawnCards"></param>
 		private static void showHistory(List<Card> drawnCards) {
 			if (drawnCards.Count == 0) {
-				showMessage("No cards drawn");
+				Program.showMessage("No cards drawn");
 				return;
 			}
 
