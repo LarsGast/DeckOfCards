@@ -73,7 +73,7 @@ namespace DeckOfPlayingCards {
 		/// <param name="displayTenAsT">Whether the rank "Ten" should be displayed as "T". Default is false (displays "10").</param>
 		/// <returns>A string representing the card, e.g., "2♠" for the 2 of Spades.</returns>
 		public string getDisplayString(bool displayTenAsT = false) {
-			return this.suit.getDisplayString() + this.rank.getDisplayString(displayTenAsT);
+			return this.rank.getDisplayString(displayTenAsT) + this.suit.getDisplayString();
 		}
 	}
 }
