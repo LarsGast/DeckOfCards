@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DeckOfCardsLibrary\DeckOfCardsLibrary.csproj" />
+    <ProjectReference Include="..\DeckOfCardsLibrary\DeckOfPlayingCardsLibrary.csproj" />
   </ItemGroup>
 
 </Project>

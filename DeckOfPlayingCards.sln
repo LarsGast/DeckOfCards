@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeckOfCardsLibrary", "DeckOfCardsLibrary\DeckOfCardsLibrary.csproj", "{5AC2AF7B-FC35-4289-BA72-032C7720CE80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeckOfPlayingCardsLibrary", "DeckOfCardsLibrary\DeckOfPlayingCardsLibrary.csproj", "{5AC2AF7B-FC35-4289-BA72-032C7720CE80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeckOfCardsTests", "DeckOfCardsTests\DeckOfCardsTests.csproj", "{5EC6AF29-F937-4248-AA0E-B83439F3341D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeckOfPlayingCardsTests", "DeckOfCardsTests\DeckOfPlayingCardsTests.csproj", "{5EC6AF29-F937-4248-AA0E-B83439F3341D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeckOfCardsDemo", "DeckOfCardsDemo\DeckOfCardsDemo.csproj", "{6BC906D0-FCB4-4ACF-8A56-8831009E688B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeckOfPlayingCardsDemo", "DeckOfCardsDemo\DeckOfPlayingCardsDemo.csproj", "{6BC906D0-FCB4-4ACF-8A56-8831009E688B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
