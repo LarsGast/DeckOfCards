@@ -2,7 +2,7 @@ using DeckOfPlayingCards;
 
 namespace DeckOfPlayingCardsDemo {
 	class Program {
-		static void Main(string[] args) {
+		private static void Main(string[] args) {
 
 			// Initialize some variables.
 			Deck? deck = null;
@@ -52,7 +52,7 @@ namespace DeckOfPlayingCardsDemo {
 		/// <param name="deck"></param>
 		/// <param name="shuffled"></param>
 		/// <param name="card"></param>
-		static void showStatus(Deck? deck, bool shuffled, Card? card) {
+		private static void showStatus(Deck? deck, bool shuffled, Card? card) {
 			if (deck == null) {
 				Console.WriteLine("No deck found");
 			}
@@ -75,7 +75,7 @@ namespace DeckOfPlayingCardsDemo {
 		/// Shows a message to the user and halts the program until user interferance.
 		/// </summary>
 		/// <param name="message"></param>
-		static void showMessage(string message = "Error") {
+		private static void showMessage(string message = "Error") {
 			Console.Clear();
 			Console.WriteLine(message);
 			Console.WriteLine("Press any key to continue");
@@ -85,7 +85,7 @@ namespace DeckOfPlayingCardsDemo {
 		/// <summary>
 		/// Shows the user the options they have to continue.
 		/// </summary>
-		static void showOptions() {
+		private static void showOptions() {
 			Console.WriteLine("What would you like to do?");
 			Console.WriteLine("G: Get a new (unsorted) deck");
 			Console.WriteLine("S: Shuffle the deck");
@@ -103,7 +103,7 @@ namespace DeckOfPlayingCardsDemo {
 		/// <param name="shuffled"></param>
 		/// <param name="drawnCards"></param>
 		/// <param name="input"></param>
-		static void handleRequest(ref Deck? deck, ref Card? card, ref bool shuffled, ref List<Card> drawnCards, string? input) {
+		private static void handleRequest(ref Deck? deck, ref Card? card, ref bool shuffled, ref List<Card> drawnCards, string? input) {
 			if (input == "g") {
 				getDeck(out deck, ref shuffled);
 			}
@@ -129,7 +129,7 @@ namespace DeckOfPlayingCardsDemo {
 		/// </summary>
 		/// <param name="deck"></param>
 		/// <param name="shuffled"></param>
-		static void getDeck(out Deck? deck, ref bool shuffled) {
+		private static void getDeck(out Deck? deck, ref bool shuffled) {
 			deck = Deck.get();
 			shuffled = false;
 		}
@@ -139,7 +139,7 @@ namespace DeckOfPlayingCardsDemo {
 		/// </summary>
 		/// <param name="deck"></param>
 		/// <param name="shuffled"></param>
-		static void shuffleDeck(Deck? deck, ref bool shuffled) {
+		private static void shuffleDeck(Deck? deck, ref bool shuffled) {
 			if (deck == null) {
 				showMessage("Deck not found");
 				return;
@@ -155,7 +155,7 @@ namespace DeckOfPlayingCardsDemo {
 		/// <param name="deck"></param>
 		/// <param name="drawnCards"></param>
 		/// <param name="card"></param>
-		static void drawCard(Deck? deck, List<Card> drawnCards, ref Card? card) {
+		private static void drawCard(Deck? deck, List<Card> drawnCards, ref Card? card) {
 			if (deck == null) {
 				showMessage("Deck not found");
 				return;
@@ -173,7 +173,7 @@ namespace DeckOfPlayingCardsDemo {
 		/// <param name="deck"></param>
 		/// <param name="card"></param>
 		/// <param name="drawnCards"></param>
-		static void resetDeck(Deck? deck, ref Card? card, ref List<Card> drawnCards) {
+		private static void resetDeck(Deck? deck, ref Card? card, ref List<Card> drawnCards) {
 			if (deck == null) {
 				showMessage("Deck not found");
 				return;
@@ -190,7 +190,7 @@ namespace DeckOfPlayingCardsDemo {
 		/// Shows all the cards drawn since last reset.
 		/// </summary>
 		/// <param name="drawnCards"></param>
-		static void showHistory(List<Card> drawnCards) {
+		private static void showHistory(List<Card> drawnCards) {
 			if (drawnCards.Count == 0) {
 				showMessage("No cards drawn");
 				return;
